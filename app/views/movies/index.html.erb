@@ -1,0 +1,23 @@
+<h1 class="current-genre"><%= params[:genre] %></h1>
+
+<% if @movies.count == 0 %>
+
+	<h1>There are no movies currently in this genre</h1>
+
+<% else %>	
+<div class="row" style="justify-content: center;">
+    <% @movies.each do |movie| %>
+    <a href="/movies/<%= movie.id %>">
+        <div class="col-sm-6 col-md-3">
+            <div class="movie zoom"  style="margin:30px">
+					<%= image_tag movie.movie_img.url(:movie_index)%>
+					<h4 class="movie-title" ><%= movie.title %></h4>
+					<h4 class="movie-genre" ><%= movie.genre.name %></h4>
+			</div>	
+		</div>
+	</a>
+				
+		
+    <% end %>
+ </div>
+<% end %>

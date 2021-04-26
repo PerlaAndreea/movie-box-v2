@@ -1,0 +1,433 @@
+@import url(http://fonts.googleapis.com/css?family=Lora|Ubuntu:300,400,500); 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* Variables, mixins, etc.. */
+
+@mixin background-tile {
+	box-sizing: border-box;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 3px 3px 5px 6px #ccc;
+	padding: 1.5em 1.25em;
+}
+
+.btn-custom {
+	color: #ff449d;
+	background-color: #fff;
+	border: 1px solid #ff449d;
+	padding: 8px 20px;
+	border-radius: 5px;
+	font-family: 'Ubuntu', sans-serif;
+	&:hover {
+		text-decoration: none;
+		background-color: #ff449d;
+		color: #fff;
+		transition: 0.5s;
+	}
+}
+/* Movie styles */
+
+.movie{
+     padding: 20px 20px;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+     background: white;
+    
+}
+img {
+  margin-top: 70px;
+  vertical-align: middle;
+  width: 100%;
+  -moz-box-shadow: 0 0 15px rgb(73, 73, 73);
+    -webkit-box-shadow: 0 0 15px rgb(73, 73, 73);
+    box-shadow: 0 0 15px rgb(73, 73, 73);
+    padding: 0px;
+    margin: 0%;
+    height: 450px;
+}
+.zoom {
+  transition: transform .2s;
+  margin: 0 auto;
+&:hover {
+  -ms-transform: scale(1.2); /* IE 9 */
+  -webkit-transform: scale(1.2); /* Safari 3-8 */
+  transform: scale(1.2); 
+  cursor: pointer;
+}}
+.m-4{
+    margin: 4 !important;
+}
+.container{
+width: 100%;
+  padding-right: 40px;
+  padding-left: 40px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.movie-info {
+	@include background-tile;
+
+	.movie-title {
+		margin-top: 0;
+		font-size: 2em;
+	}
+
+	.avg-rating {
+		font-size: 1.5em;
+		margin-top: 15px;
+		margin-bottom: 5px;
+	}
+
+	.number-of-reviews {
+		font-size: 0.85em;
+		font-style: italic;
+	}
+
+	.movie-productionCompany {
+		font-size: 1.5em;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		span {
+			font-size: 0.80em;
+		}	
+	}
+	.movie-genre {
+		font-size: 1.20em;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		span {
+			font-size: 0.80em;
+		}	
+	}
+
+	.movie-desc {
+		font-size: 1.05em;
+		line-height: 1.5;
+		margin-bottom: 15px;
+		margin-top: 15px;
+	}
+
+}
+
+/* Reviews styles */
+
+.reviews {
+
+	@include background-tile;
+	margin-top: 40px;
+
+	h1 {
+		margin-top: 0;
+		margin-bottom: 15px;
+		font-size: 2em;
+	}
+
+	.review {
+		border-bottom: 1px solid gainsboro;
+		margin-bottom: 15px;
+		padding-bottom: 10px;
+
+		.review-comment {
+			font-size: 1.05em;
+			line-height: 1.5;
+		  font-style: italic;
+		}
+
+	}
+
+	.new-review {
+		padding-top: 8px;
+	}
+
+}
+
+.new-review-form, .edit-review-form {
+	@include background-tile;
+
+	h1 {
+		margin-top: 0;
+	}
+
+	#rating-form {
+		margin-bottom: 15px;
+
+		label {
+			display: block;
+		}
+
+	}
+
+}
+
+/* General styles */
+
+body {
+	background-color: #f5f5f5;
+	font-family: 'Lora', serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: 300;
+}
+
+p.alert, p.notice {
+	margin: 0;
+}
+
+
+/* Navbar/navigation styles */
+
+.navbar {
+	font-family: 'Ubuntu', sans-serif;
+	text-transform: uppercase;
+}
+.navbar-default {
+	background-color: #fff;
+	padding-bottom: 5px;
+	padding-top: 5px;
+
+	.navbar-nav > li > a {
+		color: #222;
+		&:hover {
+			color: #ff449d;
+			transition: 0.5s;
+		}
+	}
+
+	.navbar-header {
+
+		.navbar-brand {
+			color: #222;
+			letter-spacing: 1.4px;
+		}
+
+	}
+
+	.dropdown-menu > li > a:hover {
+		background-color: #ff449d;
+		color: #fff;
+	}
+
+	.navbar-nav > .open > a, .navbar-nav > .open > a:hover, .navbar-nav > .open > a:focus {
+		background-color: #ff449d;
+		color: #fff;	
+	}
+
+}
+
+.dropdown-menu > .active > a {
+	background-color: #f1c40f;
+	color: #fff;
+}
+
+
+/* Button/link styles */
+
+
+.btn-custom2 {
+	color: #333;
+	background-color: #fff;
+	border: 1px solid #222;
+	padding: 8px 20px;
+	border-radius: 5px;
+	font-family: 'Ubuntu', sans-serif;
+	&:hover {
+		text-decoration: none;
+		background-color: #333;
+		color: #fff;
+		transition: 0.5s;
+	}	
+}
+
+.links {
+
+	.btn-custom {
+		padding: 3px 10px;
+		font-weight: 300;
+	}
+
+}
+
+.book-links {
+
+	.btn-custom {
+		padding: 3px 10px;
+		font-weight: 300;
+		margin-top: 40px;	
+	}
+
+}
+
+
+/* current-genre styles */
+
+.current-genre {
+	margin-bottom: 40px;
+}
+
+
+/* Reviews styles */
+
+.reviews {
+
+	@include background-tile;
+	margin-top: 40px;
+
+	h1 {
+		margin-top: 0;
+		margin-bottom: 15px;
+		font-size: 2em;
+	}
+
+	.review {
+		border-bottom: 1px solid gainsboro;
+		margin-bottom: 15px;
+		padding-bottom: 10px;
+
+		.review-comment {
+			font-size: 1.05em;
+			line-height: 1.5;
+		}
+
+	}
+
+	.new-review {
+		padding-top: 8px;
+	}
+
+}
+
+/* New Movie Form styles */
+
+.new-movie-form {
+	@include background-tile;
+
+	h1 {
+		margin-top: 0;
+	}
+
+	#genre_id {
+		margin-bottom: 10px;
+	}
+
+	#movie_movie_img {
+		margin-bottom: 10px;
+	}
+
+}
+
+
+/* Edit Movie Form styles */
+
+.edit-movie-form {
+
+	@include background-tile;
+
+	h1 {
+		margin-top: 0;
+	}
+
+	#movie_genre_id {
+		margin-bottom: 10px;
+	}
+
+	#movie_movie_img {
+		margin-bottom: 10px;
+	}
+
+}
+
+/* New/Edit review form styles */
+
+.new-review-form, .edit-review-form {
+	@include background-tile;
+
+	h1 {
+		margin-top: 0;
+	}
+
+	#rating-form {
+		margin-bottom: 15px;
+
+		label {
+			display: block;
+		}
+
+	}
+
+}
+
+
+/* Signup/Login form styles */
+
+.signup-form {
+	@include background-tile;
+
+	h2 {
+		margin-top: 0;
+	}
+
+}
+
+.login-form {
+	@include background-tile;
+
+	h2 {
+		margin-top: 0;
+	}
+
+}
+
+a {
+ text-decoration: none;
+  .movie-title{
+    color: black;
+    text-styles: bold;
+    text-align: left;
+    vertical-align: top;
+    font-size: 25px;
+    padding: 0px;
+    margin: 0%;
+    text-decoration: none;
+  }
+  .movie-genre{
+    text-transform: capitalize;
+    margin: 0%;
+    font-size: 16px;
+    color: rgb(77, 77, 77);
+    text-decoration: none;
+  }
+  .movie-rating{
+    text-styles: bold;
+    text-align: right;
+    vertical-align: bottom;
+  }
+}
+
+div .row{
+  justify-content: center;
+}
+
+
+.header{
+  margin: 0;
+  .container {
+    margin: 0px;
+    padding: 0px;
+  position: relative;
+  text-align: center;
+  color: white;
+  width: 100%;
+  background-size:cover;
+      img{
+    margin: 0;
+  position: center;
+  object-fit: cover;
+  width: 100%;
+  height: 240px;
+          
+      }
+  }
+}

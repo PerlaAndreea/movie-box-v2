@@ -1,0 +1,70 @@
+<div class="row">
+
+	<div class="col-md-3">
+
+		<%= image_tag @movie.movie_img.url(:movie_show), class: "movie-show" %>
+		<div class="links btn-group">
+	
+			<%= link_to "Back", root_path, class: "btn btn-custom" %>
+			<% if user_signed_in? %>
+				<% if @movie.user_id == current_user.id %>
+					<%= link_to "Edit", edit_movie_path(@movie), class: "btn btn-custom" %>
+					<%= link_to "Delete", movie_path(@movie), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-custom" %>
+				<% end %>
+			<% end %>	
+
+		</div>	
+
+	</div>
+
+	<div class="col-md-9">
+
+		<div class="movie-info">
+			
+			<h2 class="movie-title"><%= @movie.title %></h2>
+			<h3 class="movie-productionCompany"><span>From</span> <%= @movie.productionCompany %></h3>
+			<h4 class="movie-genre">Genre: <%= @movie.genre.name %></h4>
+			<% if @movie.reviews.count > 1 %>
+			<h4 class="movie-rating">Average Rating: <%= @average_review %></h4>
+			<span class="number-of-reviews">Based on <%= @movie.reviews.count %> reviews</span>
+			<% else %>
+			<span class="number-of-reviews">No reviews yet. You can add one below!</span>
+			<% end %>	
+			<p class="movie-desc"><%= @movie.description %></p>
+
+		</div>
+		
+		<div class="reviews">
+				
+				<h1>Reviews</h1>
+				<%= render @movie.reviews %>
+
+				<div>
+					<%= link_to "Add Review", new_movie_review_path(@movie), class: "btn-custom" %>
+				</div>
+		</div>
+	</div>
+
+
+</div>
+
+<script>
+	$('.review-rating').raty({
+		readOnly: true,
+		score: function() {
+			return $(this).attr('data-score');
+		},
+		path: '/assets/'
+	});
+</script>
+
+
+<script>
+	$('.average-review-rating').raty({
+		readOnly: true,
+		path: '/assets/',
+		score: function() {
+			return $(this).attr('data-score')
+		}
+	});
+</script>

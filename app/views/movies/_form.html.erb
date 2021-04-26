@@ -1,0 +1,9 @@
+<%= simple_form_for @movie, :html => { :multipart => true } do |f| %>
+  <%= render 'shared/error_messages2'%>
+	<%= select_tag(:genre_id, options_for_select(@genres), :prompt => "Select a genre") %>
+	<%= f.file_field :movie_img %>
+	<%= f.input :title, label: "Movie Title" %>
+	<%= f.input :description %>
+	<%= f.input :productionCompany, label: "Production Company" %>
+	<%= f.button :submit, :class => 'btn-custom2' %>
+<% end %>

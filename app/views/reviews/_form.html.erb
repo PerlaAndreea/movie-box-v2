@@ -1,0 +1,15 @@
+<%= simple_form_for([@movie, @movie.reviews.build]) do |f| %>
+   <%= render 'shared/error_messages'%>
+    <%= f.input :rating %><br>
+	<%= f.input :comment %>
+	<%= f.button :submit, :class => "btn-custom2" %>
+<% end %>
+
+
+
+<script>
+  $('#star-rating').raty({
+    path: '/assets/',
+    scoreName: 'review[rating]'
+  });
+</script>

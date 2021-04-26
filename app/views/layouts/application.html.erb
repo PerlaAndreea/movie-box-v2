@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Movie Box</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript" src="Scripts/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
+    
+  </head>
+
+  <body>
+  	<div class="header">
+        <div class="container">
+        <img src="http://www.web-boxoffice.co.uk/wp-content/uploads/2014/08/cropped-header2.png">
+        </div>
+    </div>
+   <nav class="navbar navbar-default">
+
+			<div class="navbar-header">
+				<%= link_to "Movie Box", root_path, class: "navbar-brand" %>
+			</div>
+
+			<ul class="nav navbar-nav">
+				
+						<% Genre.all.each do |genre| %>
+							<li class="<%= 'active' if params[:genre] == genre.name %>">
+								<%= link_to genre.name, movies_path(genre: genre.name), class: "link" %>
+							</li>
+						<% end %>
+					
+				<% if user_signed_in? %>
+					<li><%= link_to "Add Movie", new_movie_path %></li>
+				<% end %>
+			</ul>
+			 
+
+			<ul class="nav navbar-nav navbar-right">
+				
+				<% if user_signed_in? %>
+					<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+				<% else %>	
+					<li><%= link_to "Log In", new_user_session_path %></li>
+					<li><%= link_to "Sign Up", new_user_registration_path %></li>
+				<% end %>
+				
+			</ul>
+
+		</div>
+
+	</nav>
+    
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <div class="container justify-content-center">
+  	<% flash.each do |message_type, message| %>
+         <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+      <% end %>
+	    <%= yield %>
+    </div>
+  </body>
+</html>
+
+

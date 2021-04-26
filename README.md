@@ -42,4 +42,4 @@ The application has a restful API with get and post routes for creating, editing
                                          PUT    /movies/:id(.:format) -> movies#update
                                          DELETE /movies/:id(.:format) -> movies#destroy
 ## App presentation
-![alt text]("https://github.com/PerlaAndreea/movie-box-v2/blob/main/app/assets/images/image_presentation.jpg")
+![alt text](https://github.com/PerlaAndreea/movie-box-v2/blob/main/app/assets/images/image_presentation.jpg)

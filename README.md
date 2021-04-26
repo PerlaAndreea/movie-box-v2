@@ -41,4 +41,3 @@ The application has a restful API with get and post routes for creating, editing
                                          PATCH  /movies/:id(.:format) -> movies#update
                                          PUT    /movies/:id(.:format) -> movies#update
                                          DELETE /movies/:id(.:format) -> movies#destroy
-                                    root GET    / 
